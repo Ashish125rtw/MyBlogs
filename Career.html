@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Career - MyBlog</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <link rel="icon" type="image/png" href="https://img.icons8.com/ios-filled/50/ffffff/blog.png">
+  <style>
+    body { font-family: 'Poppins', sans-serif; background-color: #f8f9fa; transition: background 0.3s, color 0.3s; }
+    .dark-mode { background-color: #181a1b !important; color: #f8f9fa !important; }
+    .navbar { box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    .navbar-brand img { height: 36px; margin-right: 8px; }
+    .hero { background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=1600&auto=format&fit=crop') no-repeat center center; background-size: cover; height: 350px; display: flex; align-items: center; justify-content: center; color: white; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6); position: relative; }
+    .hero .btn { margin-top: 20px; }
+    .card { border: none; border-radius: 16px; overflow: hidden; box-shadow: 0 2px 16px rgba(0,0,0,0.07); transition: transform 0.3s, box-shadow 0.3s; }
+    .card:hover { transform: translateY(-8px) scale(1.03); box-shadow: 0 8px 32px rgba(0,0,0,0.13); }
+    .tag { background: #e9ecef; color: #495057; border-radius: 12px; padding: 2px 10px; font-size: 0.8em; margin-right: 5px; }
+    .like-btn, .share-btn { background: none; border: none; color: #007bff; cursor: pointer; font-size: 1.1em; margin-left: 8px; }
+    .like-btn.liked { color: #e74c3c; }
+    .section-title { font-weight: 700; margin-top: 48px; margin-bottom: 24px; text-align: center; }
+    .roadmap { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 24px; margin-bottom: 32px; }
+    .roadmap h5 { font-weight: 600; margin-bottom: 16px; }
+    .roadmap ol { padding-left: 20px; }
+    .tips-list li { margin-bottom: 12px; font-size: 1.1em; }
+    .resource-card { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 20px; margin-bottom: 20px; }
+    .resource-card a { color: #007bff; text-decoration: none; font-weight: 500; }
+    .resource-card a:hover { text-decoration: underline; }
+    footer { background-color: #343a40; color: white; padding: 40px 0 20px 0; text-align: center; }
+    .footer-links a { color: #adb5bd; margin: 0 10px; text-decoration: none; font-size: 1em; }
+    .footer-links a:hover { color: #fff; }
+    .footer-social a { color: #adb5bd; margin: 0 8px; font-size: 1.3em; }
+    .footer-social a:hover { color: #fff; }
+    .newsletter-form input[type="email"] { border-radius: 20px 0 0 20px; border: none; padding: 8px 16px; outline: none; }
+    .newsletter-form button { border-radius: 0 20px 20px 0; border: none; padding: 8px 20px; background: #007bff; color: #fff; transition: background 0.3s; }
+    .newsletter-form button:hover { background: #0056b3; }
+    .dark-mode footer { background: #181a1b; color: #f8f9fa; }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="Index.html">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/blog.png" alt="Logo">
+        MyBlog
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="Index.html">Home</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" id="categoriesDropdown" role="button" data-bs-toggle="dropdown">Categories</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="Programming.html">Programming</a></li>
+              <li><a class="dropdown-item" href="AI.html">AI</a></li>
+              <li><a class="dropdown-item" href="WebDev.html">Web Dev</a></li>
+              <li><a class="dropdown-item active" href="Career.html">Career</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+          <li class="nav-item mx-2">
+            <form class="d-flex" r      ole="search">
+              <input class="form-control form-control-sm me-2" type="search" placeholder="Search">
+              <button class="btn btn-outline-light btn-sm" type="submit"><i class="fas fa-search"></i></button>
+            </form>
+          </li>
+          <li class="nav-item d-none d-lg-block"><a class="nav-link" href="#"><i class="fab fa-twitter"></i></a></li>
+          <li class="nav-item d-none d-lg-block"><a class="nav-link" href="#"><i class="fab fa-github"></i></a></li>
+          <li class="nav-item ms-2">
+            <button class="btn btn-outline-light btn-sm" id="darkModeToggle"><i class="fas fa-moon"></i></button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="hero text-center" data-aos="fade-up">
+    <div>
+      <h1>Career in Tech</h1>
+      <p>Guides, tips, and resources to help you build a successful tech career.</p>
+      <a href="#career-articles" class="btn btn-primary btn-lg">Explore Career Content</a>
+    </div>
+  </div>
+
+  <!-- Career Articles Section -->
+  <div class="container mt-5" id="career-articles">
+    <h2 class="mb-4 text-center" data-aos="fade-up">Featured Career Articles</h2>
+    <div class="row">
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="card mb-4">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIPCwVRoPqaEL4Td_ffVSdUuLAiNgJX0VaxlczqV9Y4RI4pQ0As6tt87fGIINMgZQw6DY&usqp=CAU" class="card-img-top" alt="Career Path">
+          <div class="card-body">
+            <h5 class="card-title">Career Paths in Tech</h5>
+            <div class="mb-2">
+              <span class="tag">Career</span>
+              <span class="tag">Paths</span>
+            </div>
+            <p class="card-text">Explore different roles in tech: developer, designer, data scientist, and more.</p>
+            <div class="d-flex align-items-center mb-2">
+              <img src="https://randomuser.me/api/portraits/men/12.jpg" class="rounded-circle me-2" width="32" height="32" alt="Author">
+              <small>By <b>Michael Green</b> &middot; Jan 10, 2025</small>
+            </div>
+            <a href="#roadmap" class="btn btn-primary">See Roadmap</a>
+          </div>
+          <div class="card-footer">
+            <div>
+              <button class="like-btn" onclick="toggleLike(this)"><i class="fa-regular fa-heart"></i></button>
+              <button class="share-btn" onclick="sharePost('Career Paths in Tech')"><i class="fa-solid fa-share"></i></button>
+            </div>
+            <span><i class="fa-regular fa-comments"></i> 17</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="card mb-4">
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=600&auto=format&fit=crop" class="card-img-top" alt="Interview Tips">
+          <div class="card-body">
+            <h5 class="card-title">Ace Your Tech Interview</h5>
+            <div class="mb-2">
+              <span class="tag">Interview</span>
+              <span class="tag">Tips</span>
+            </div>
+            <p class="card-text">Get ready for interviews with practical advice, common questions, and best practices.</p>
+            <div class="d-flex align-items-center mb-2">
+              <img src="https://randomuser.me/api/portraits/women/34.jpg" class="rounded-circle me-2" width="32" height="32" alt="Author">
+              <small>By <b>Sarah Lee</b> &middot; Feb 18, 2025</small>
+            </div>
+            <a href="#" class="btn btn-primary">Read More</a>
+          </div>
+          <div class="card-footer">
+            <div>
+              <button class="like-btn" onclick="toggleLike(this)"><i class="fa-regular fa-heart"></i></button>
+              <button class="share-btn" onclick="sharePost('Ace Your Tech Interview')"><i class="fa-solid fa-share"></i></button>
+            </div>
+            <span><i class="fa-regular fa-comments"></i> 12</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="card mb-4">
+          <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?q=80&w=600&auto=format&fit=crop" class="card-img-top" alt="Remote Work">
+          <div class="card-body">
+            <h5 class="card-title">Remote Work & Freelancing</h5>
+            <div class="mb-2">
+              <span class="tag">Remote</span>
+              <span class="tag">Freelance</span>
+            </div>
+            <p class="card-text">Tips for finding remote jobs, freelancing, and building a flexible tech career.</p>
+            <div class="d-flex align-items-center mb-2">
+              <img src="https://randomuser.me/api/portraits/men/41.jpg" class="rounded-circle me-2" width="32" height="32" alt="Author">
+              <small>By <b>Mike Brown</b> &middot; Mar 1, 2025</small>
+            </div>
+            <a href="#" class="btn btn-primary">Read More</a>
+          </div>
+          <div class="card-footer">
+            <div>
+              <button class="like-btn" onclick="toggleLike(this)"><i class="fa-regular fa-heart"></i></button>
+              <button class="share-btn" onclick="sharePost('Remote Work & Freelancing')"><i class="fa-solid fa-share"></i></button>
+            </div>
+            <span><i class="fa-regular fa-comments"></i> 8</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Career Roadmap Section -->
+  <div class="container" id="roadmap">
+    <div class="roadmap" data-aos="fade-up">
+      <h5>Career Roadmap: Steps to Success in Tech</h5>
+      <ol>
+        <li><b>Self-Assessment:</b> Identify your interests, strengths, and preferred work style.</li>
+        <li><b>Choose a Path:</b> Research roles (developer, designer, analyst, etc.) and pick one to start.</li>
+        <li><b>Learn & Upskill:</b> Take courses, earn certifications, and build a portfolio.</li>
+        <li><b>Network:</b> Connect with professionals on LinkedIn, attend meetups, and join online communities.</li>
+        <li><b>Apply & Interview:</b> Prepare your resume, apply for jobs, and practice interview skills.</li>
+        <li><b>Get Experience:</b> Intern, freelance, or contribute to open source to gain real-world skills.</li>
+        <li><b>Grow & Adapt:</b> Stay updated, seek feedback, and be open to new opportunities.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Tips Section -->
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">Motivational Tips for Your Tech Career</h2>
+    <ul class="tips-list" data-aos="fade-up" data-aos-delay="100">
+      <li><i class="fa-solid fa-bullseye me-2"></i>Set clear goals and track your progress.</li>
+      <li><i class="fa-solid fa-handshake me-2"></i>Build relationships and find mentors.</li>
+      <li><i class="fa-solid fa-brain me-2"></i>Embrace lifelong learning and adaptability.</li>
+      <li><i class="fa-solid fa-heart me-2"></i>Take care of your mental and physical health.</li>
+      <li><i class="fa-solid fa-trophy me-2"></i>Celebrate your achievements, big or small.</li>
+    </ul>
+  </div>
+
+  <!-- Resources Section -->
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">Top Career Resources</h2>
+    <div class="row">
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="resource-card">
+          <h5><i class="fa-brands fa-linkedin me-2"></i>LinkedIn</h5>
+          <p>Build your professional profile, network, and find job opportunities.</p>
+          <a href="https://www.linkedin.com/" target="_blank">Visit LinkedIn</a>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="resource-card">
+          <h5><i class="fa-solid fa-briefcase me-2"></i>Indeed</h5>
+          <p>Search for tech jobs, internships, and company reviews.</p>
+          <a href="https://www.indeed.com/" target="_blank">Visit Indeed</a>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="resource-card">
+          <h5><i class="fa-brands fa-github me-2"></i>GitHub</h5>
+          <p>Showcase your projects, contribute to open source, and connect with developers.</p>
+          <a href="https://github.com/" target="_blank">Visit GitHub</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row mb-4">
+        <div class="col-md-4 mb-3 mb-md-0">
+          <h5>About MyBlog</h5>
+          <p>Sharing knowledge, tutorials, and stories for tech enthusiasts and learners worldwide.</p>
+        </div>
+        <div class="col-md-4 mb-3 mb-md-0">
+          <h5>Quick Links</h5>
+          <div class="footer-links">
+            <a href="Index.html">Home</a>
+            <a href="#">Blog</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="#">Privacy Policy</a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <h5>Newsletter</h5>
+          <form class="newsletter-form d-flex" onsubmit="subscribeNewsletter(event)">
+            <input type="email" class="form-control" placeholder="Your email" required>
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-social mb-2">
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+      </div>
+      <p class="mb-0">&copy; 2025 MyBlog. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    darkModeToggle.onclick = function() {
+      document.body.classList.toggle('dark-mode');
+      if(document.body.classList.contains('dark-mode')) {
+        darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+      } else {
+        darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+      }
+    };
+    function toggleLike(btn) {
+      btn.classList.toggle('liked');
+      const icon = btn.querySelector('i');
+      if(btn.classList.contains('liked')) {
+        icon.classList.remove('fa-regular');
+        icon.classList.add('fa-solid');
+      } else {
+        icon.classList.remove('fa-solid');
+        icon.classList.add('fa-regular');
+      }
+    }
+    function sharePost(title) {
+      if (navigator.share) {
+        navigator.share({ title: title, url: window.location.href });
+      } else {
+        alert('Share not supported on this browser.');
+      }
+    }
+    function subscribeNewsletter(e) {
+      e.preventDefault();
+      alert('Thank you for subscribing!');
+      e.target.reset();
+    }
+  </script>
+</body>
+</html> 

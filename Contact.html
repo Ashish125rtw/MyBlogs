@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - MyBlog</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <link rel="icon" type="image/png" href="https://img.icons8.com/ios-filled/50/ffffff/blog.png">
+  <style>
+    body { font-family: 'Poppins', sans-serif; background-color: #f8f9fa; transition: background 0.3s, color 0.3s; }
+    .dark-mode { background-color: #181a1b !important; color: #f8f9fa !important; }
+    .navbar { box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    .navbar-brand img { height: 36px; margin-right: 8px; }
+    .hero { background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1515168833906-d2a3b82b302b?q=80&w=1600&auto=format&fit=crop') no-repeat center center; background-size: cover; height: 300px; display: flex; align-items: center; justify-content: center; color: white; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6); position: relative; }
+    .section-title { font-weight: 700; margin-top: 48px; margin-bottom: 24px; text-align: center; }
+    .contact-card { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 32px; margin-bottom: 32px; max-width: 600px; margin-left: auto; margin-right: auto; }
+    .form-label { font-weight: 500; }
+    .form-control, .form-control:focus { border-radius: 10px; box-shadow: none; }
+    .btn-primary { border-radius: 10px; }
+    .success-message { display: none; color: #28a745; font-weight: 600; margin-top: 16px; text-align: center; }
+    footer { background-color: #343a40; color: white; padding: 40px 0 20px 0; text-align: center; }
+    .footer-links a { color: #adb5bd; margin: 0 10px; text-decoration: none; font-size: 1em; }
+    .footer-links a:hover { color: #fff; }
+    .footer-social a { color: #adb5bd; margin: 0 8px; font-size: 1.3em; }
+    .footer-social a:hover { color: #fff; }
+    .newsletter-form input[type="email"] { border-radius: 20px 0 0 20px; border: none; padding: 8px 16px; outline: none; }
+    .newsletter-form button { border-radius: 0 20px 20px 0; border: none; padding: 8px 20px; background: #007bff; color: #fff; transition: background 0.3s; }
+    .newsletter-form button:hover { background: #0056b3; }
+    .dark-mode footer { background: #181a1b; color: #f8f9fa; }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="Index.html">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/blog.png" alt="Logo">
+        MyBlog
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="Index.html">Home</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="categoriesDropdown" role="button" data-bs-toggle="dropdown">Categories</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="Programming.html">Programming</a></li>
+              <li><a class="dropdown-item" href="AI.html">AI</a></li>
+              <li><a class="dropdown-item" href="WebDev.html">Web Dev</a></li>
+              <li><a class="dropdown-item" href="Career.html">Career</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="About.html">About</a></li>
+          <li class="nav-item"><a class="nav-link active" href="Contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="hero text-center" data-aos="fade-up">
+    <div>
+      <h1>Contact Us</h1>
+      <p>We'd love to hear from you! Fill out the form below to get in touch.</p>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+    <div class="contact-card" data-aos="fade-up">
+      <h2 class="section-title">Send Us a Message</h2>
+      <form id="contactForm" novalidate>
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" required>
+          <div class="invalid-feedback">Please enter your name.</div>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" required>
+          <div class="invalid-feedback">Please enter a valid email address.</div>
+        </div>
+        <div class="mb-3">
+          <label for="message" class="form-label">Message</label>
+          <textarea class="form-control" id="message" rows="5" required></textarea>
+          <div class="invalid-feedback">Please enter your message.</div>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Send Message</button>
+        <div class="success-message" id="successMessage">Thank you for contacting us! We'll get back to you soon.</div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row mb-4">
+        <div class="col-md-4 mb-3 mb-md-0">
+          <h5>About MyBlog</h5>
+          <p>Sharing knowledge, tutorials, and stories for tech enthusiasts and learners worldwide.</p>
+        </div>
+        <div class="col-md-4 mb-3 mb-md-0">
+          <h5>Quick Links</h5>
+          <div class="footer-links">
+            <a href="Index.html">Home</a>
+            <a href="#">Blog</a>
+            <a href="About.html">About</a>
+            <a href="Contact.html">Contact</a>
+            <a href="#">Privacy Policy</a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <h5>Newsletter</h5>
+          <form class="newsletter-form d-flex" onsubmit="subscribeNewsletter(event)">
+            <input type="email" class="form-control" placeholder="Your email" required>
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-social mb-2">
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+      </div>
+      <p class="mb-0">&copy; 2025 MyBlog. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    if(darkModeToggle){
+      darkModeToggle.onclick = function() {
+        document.body.classList.toggle('dark-mode');
+        if(document.body.classList.contains('dark-mode')) {
+          darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        } else {
+          darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+        }
+      };
+    }
+    function subscribeNewsletter(e) {
+      e.preventDefault();
+      alert('Thank you for subscribing!');
+      e.target.reset();
+    }
+    // Contact Form Validation
+    const contactForm = document.getElementById('contactForm');
+    if(contactForm){
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        let valid = true;
+        const name = document.getElementById('name');
+        const email = document.getElementById('email');
+        const message = document.getElementById('message');
+        if(!name.value.trim()){
+          name.classList.add('is-invalid');
+          valid = false;
+        } else {
+          name.classList.remove('is-invalid');
+        }
+        if(!email.value.trim() || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value)){
+          email.classList.add('is-invalid');
+          valid = false;
+        } else {
+          email.classList.remove('is-invalid');
+        }
+        if(!message.value.trim()){
+          message.classList.add('is-invalid');
+          valid = false;
+        } else {
+          message.classList.remove('is-invalid');
+        }
+        if(valid){
+          document.getElementById('successMessage').style.display = 'block';
+          contactForm.reset();
+          setTimeout(()=>{
+            document.getElementById('successMessage').style.display = 'none';
+          }, 4000);
+        }
+      });
+    }
+  </script>
+</body>
+</html> 
